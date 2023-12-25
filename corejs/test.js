@@ -31,6 +31,80 @@ console.log(reverse(25));
 
 
 
+//FIRST MISSING NUMBER IN ARRAY
+
+const input = [5, 7, 9, 13, 15];
+const n = 3;
+const output = [11];
+
+// for (let i = 0; i < input.length; i++) {
+//   let current = input[i];
+//   let next = current + 2;
+
+//   if (input[i + 1] == next) continue;
+//   else {
+//     console.log(next);
+//
+//   }
+// }
+
+for (let i = 0; i < input.length; i++) {
+  let current = input[i];
+  let next = current + 2;
+  if (input[i + 1] !== next) {
+    console.log(next);
+    break;
+  }
+}
+
+//REVERSE SRING
+const srt = "this is only javascript code";
+
+const striNg = srt.split(" ");
+
+const outPut = striNg
+  .map((item) => item.split("").reverse().join(""))
+  .join(" ");
+
+console.log(outPut);
+
+//REVERSE SRING
+//const srt = "this is only javascript code";
+
+const arrOfset = srt.split("");
+const arr = arrOfset.reduce(
+  (accu, curr) =>
+    Object.keys(accu).includes(curr)
+      ? { ...accu, [curr.toLowerCase()]: accu[curr] + 1 }
+      : { ...accu, [curr.toLowerCase()]: 1 },
+  {}
+);
+
+const count = Object.entries(arr).sort((a, b) => b[1] - a[1]);
+
+console.log(count);
+
+function getString(str) {
+  const map = {};
+  str.split("").forEach((element) => {
+    map[element] = map[element] ? map[element] + 1 : 1;
+  });
+
+  let max = 1;
+  let char = str[0];
+  for (let k in map) {
+    if (map[k] > max) {
+      max = map[k];
+      char = k;
+    }
+  }
+  return char;
+}
+const final = getString("hello eorldhhhhhhhhhhhhhhh jhjhjhjhjhjhj");
+console.log(final);
+
+
+
 
 
 
